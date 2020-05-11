@@ -1,6 +1,7 @@
 //router
 const mongoose =  require ('mongoose')
 const express = require('express')
+const mongodbRoute = 'mongodb+srv://Artyo:dTovhwaj8EztKTPi@moviedb-vkxuc.mongodb.net'
 const bodyParser= require ('body-parser')
 const roouter = require('./roouters/router.js')
 //httpweb
@@ -28,9 +29,7 @@ app.use(function(req, res, next) {
   next();
 })
 
-/*app.use(function (req, res) {
-    res.status(200).send("getUrl");
- });*/
+
 
 app.use(roouter)
 
@@ -75,8 +74,8 @@ http.createServer(function (req, res) {
 const options = {
     socketTimeoutMS: 0,
     keepAlive: true,
-    reconnectTries: 30,
-    useNewUrlParser: true 
+    useNewUrlParser: true ,
+    useUnifiedTopology: true
   };
   
 
@@ -85,7 +84,7 @@ mongoose.connect(mongodbRoute, options, (err) => {
           return console.log(`Error al conectar a la base de datos: ${err}`)
       }
       server.listen(port, () => {
-          console.log(`Servidor up en ${port}`);
+          console.log(`http://localhost:${port}/`);
       });
       console.log(`Conexión con Mongo correcta.`)
   })
