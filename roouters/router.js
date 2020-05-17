@@ -5,7 +5,7 @@ const ipCRT = require('../controlers/ipCTR.js')
 
 
 //urlgenere
-router.get("/URLsource/:gmail",ipCRT.GenUrl)
+router.get("/URLsource/:data",ipCRT.GenUrl)
 
 
 

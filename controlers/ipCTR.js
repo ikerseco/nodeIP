@@ -5,7 +5,9 @@ const GnUrid = require('../funtions/genereURL.js')
 
 exports.GenUrl = async (req,res) =>{
     console.log(req.headers)
-    const Gmail = req.params.gmail
+    let data = req.params.data.split("%")
+    const Gmail = data[0]
+    const webN  = data[1]
     let jsonData = { gmail: Gmail, url : null}
     let UserAr = null
     await User.find({},(err, dat) => {
