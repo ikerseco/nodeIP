@@ -8,7 +8,7 @@ exports.GenUrl = async (req,res) =>{
     let data = req.params.data.split("%")
     const Gmail = data[0]
     const webN  = data[1]
-    let jsonData = { gmail: Gmail, url : null}
+    let jsonData = { gmail: Gmail, url : null, }
     let UserAr = null
     await User.find({},(err, dat) => {
        dat.length != 0 ?(
@@ -38,6 +38,6 @@ exports.GenUrl = async (req,res) =>{
     newUrl.save((err, dat) => {
         if (err) return res.status(500).send({ message: 'Error al realizar la peticion', err });
         if (!dat) return res.status(404).send({ message: `dato` });
-        res.status(200).send(dat)
+        res.status(200).send(req.headers)
     })
 }
