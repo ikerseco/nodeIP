@@ -1,7 +1,7 @@
 //router
 const mongoose =  require ('mongoose')
 const express = require('express')
-const mongodbRoute = 'mongodb+srv://Artyo:dTovhwaj8EztKTPi@moviedb-vkxuc.mongodb.net'
+const mongodbRoute = 'none'
 const bodyParser= require ('body-parser')
 const roouter = require('./roouters/router.js')
 //httpweb
